@@ -1,0 +1,13 @@
+1. To build simply type in a CLI: python main.py input.csv <outputName.csv>
+3. Your thoughts on how you would set up the task to run on a daily basis.
+	-I can write an additional script that schedules automatically compilation of this python program via bash that would produce the output.csv file as soon as it is available automatically assuming a linux environment.
+4. Your thoughts on how you would monitor the ongoing execution of your task.
+	-I can build an additional alert system that notifies me of any issues that may arise.
+5. Include the amount of time you spent on the solution.
+	- 6 hours 
+6. Include your thoughts on why you chose your OS/Language/tools.
+	-I wrote the program under Windows utilizing Visual Studio Code as my IDE and wrote it under Python. 
+	 I learned python during my introduction to programming course my very first semester in college while in the last 4 years I coded in Java.
+	 Since I know this position entails programming in python I chose python to show you that I can adapt fairly quickly all things considered while 
+	 at the same time giving myself a crash course in python. I met challenges in the language's implementation of for loops being more or less non-index based
+         on an iterable implementation. It made working with lists of objects more tricky which contributed to my extended amount of time on the assignment.

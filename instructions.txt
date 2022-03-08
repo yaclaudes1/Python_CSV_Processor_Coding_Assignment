@@ -1,0 +1,115 @@
+
+Here is the scenario for this exercise:
+
+Your manager enters your office and tells you that there is a quick job
+that needs to be done.  
+
+One of the clients has asked for a statistical summary of data that is 
+gathered every day from the stock market.  Not only will you need to develop 
+the code to create the output but also set up the jobs to execute and monitor 
+the process running on a daily basis at the market close (4:00 EST).
+
+As you have a lot on your plate she tells you to not spend more than an hour 
+on this task.  You have the freedom to choose the OS and language (Python preferred but not mandatory) to solve
+the problem in a timely manner.  The client will be looking for an easily
+maintainable solution that consistently produces the correct results.
+
+The requirements for the outputs as well as the input file definition are 
+outlined below.
+
+## Requirements ##
+_______________________________________________________________________________
+
+Input:
+The input file represents a very simplified stream of trades on an exchange.  
+Each row represents a trade.  If you don't know what that means don't worry.  
+The data can be thought of as a time series of values in columns: 
+
+<TimeStamp>,<Symbol>,<Quantity>,<Price>
+
+Although the provided input file is small, the solution should be able to handle 
+a source dataset well beyond the amount memory and hard disk space on your machine.
+
+Definitions
+- TimeStamp is value indicating the microseconds since midnight.
+- Symbol is the 3 character unique identifier for a financial 
+  instrument (Stock, future etc.)
+- Quantity is the amount traded
+- Price is the price of the trade for that financial instrument.
+
+Safe Assumptions:
+- TimeStamp is always for the same day and won't roll over midnight.
+- TimeStamp is increasing or same as previous tick (time gap will never be < 0).
+- Price - our currency is an integer based currency.  No decimal points.
+- Price - Price is always > 0.
+
+Example: here is a row for a trade of 10 shares of aaa stock at a price of 12 
+1234567,aaa,10,12
+
+Problem:
+Find the following on a per symbol basis:
+- Maximum time gap
+  (time gap = Amount of time that passes between consecutive trades of a symbol)
+  if only 1 trade is in the file then the gap is 0.
+- Total Volume traded (Sum of the quantity for all trades in a symbol).
+- Max Trade Price.
+- Weighted Average Price.  Average price per unit traded not per trade.
+  Result should be truncated to whole numbers.
+
+  Example: the following trades
+	20 shares of aaa @ 18
+	5 shares of aaa @ 7
+	Weighted Average Price = ((20 * 18) + (5 * 7)) / (20 + 5) = 15
+
+Output:
+Your solution should produce a file called 'output.csv'.
+file should be a comma separate file with this format:
+<symbol>,<MaxTimeGap>,<Volume>,<WeightedAveragePrice>,<MaxPrice>
+
+The output should be sorted by symbol ascending ('aaa' should be first).
+
+Sample Input:
+52924702,aaa,13,1136
+52924702,aac,20,477
+52925641,aab,31,907
+52927350,aab,29,724
+52927783,aac,21,638
+52930489,aaa,18,1222
+52931654,aaa,9,1077
+52933453,aab,9,756
+
+Sample Output (given the above input):
+aaa,5787,40,1161,1222
+aab,6103,69,810,907
+aac,3081,41,559,638
+
+Constraints:
+Only use the toolset provided in the base install of your language/platform.
+No add on modules/libraries should be used in your solution.  Do not use Pandas or Numpy.
+
+Your solution should read from stdin and write to stdout.  In order to create
+the output file as requested you would use the following syntax if your solution
+were named 'process_trades'.
+
+process_trades < input.csv > output.csv
+
+_______________________________________________________________________________
+
+Please include the following with your submission:
+1. Your source code & build instructions.
+2. The output.csv file produced from the input.csv provided.
+3. Your thoughts on how you would set up the task to run on a daily basis.
+4. Your thoughts on how you would monitor the ongoing execution of your task.
+5. Include the amount of time you spent on the solution.
+6. Include your thoughts on why you chose your OS/Language/tools.
+
+Your submission will be evaluated on the following criteria
+1.  Correctness of the output
+2.  Cleanliness and maintainability of the solution
+
+This is intended to be a simple exercise and shouldn't take more than an hour
+to complete.  We take that into account when we evaluate.
+
+Please return your solution within 48 hours of receiving the test.
+
+Good luck!
